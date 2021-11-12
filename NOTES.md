@@ -185,3 +185,5 @@ Now take a look at how Webpack describes loaders:
 The `rules` array will contain all of our loaders, each loader specifies what type of file it will run on by running a regex matcher - in the case above we are looking for all `.js` files - the `$` at the end simply ,means that nothing comes after that.
 
 But simply looking for all the `.js` files in our project would be problematic, as we don’t want to run this on all the files we have in our node modules. For that kind of use case, we also have an exclude option available to us, and then we simply name the loader to be run on the selected files. Some loaders will have different options, you can always look it up in the loader documentation.
+
+## Lesson 3: Saas and Webpack
