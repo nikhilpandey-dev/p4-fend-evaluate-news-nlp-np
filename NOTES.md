@@ -143,8 +143,17 @@ Webpack supports all browser that are [ES5-compliant](https://kangax.github.io/c
 
 Webpack 5 runs on Node.js version 10.13.0+.
 
-## Udacity Notes
+# Udacity Notes
 
 ## Lesson 2: Basics of Webpack
 
 ### Install Webpack
+
+### Output and Loaders
+
+What's currently wrong:
+1. The distribution folder has no connection whatsoever to our app. If you start the express server, our app is still functioning exactly the same way it did in part 0.
+1. The `main.js` file of our distribution folder contains none of the javascript or othets wrtoe for our webpage.
+
+The "output" of webpack is the distribution (`dist`) folder. It is where webpack drops or "outputs" the neat bundles of assets it creates from the individual files we point it to.
+
