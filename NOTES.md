@@ -65,8 +65,8 @@ In the example above, we use the `output.filename` and the `output.path` propert
 Out of the box, webpack only understands JavaScript and JSON files. **Loaders** allow webpack to process other types of files and convert them into valid modules that can be consumed by your application and added to the dependency graph. 
 
 At the high level loaders have two properties in your webpack configuration:
-
 1. The `test` property identifies which file or files should be transformed.
+
 1.The `use` property indicates which loaders should be used to do the transforming.
 
 **webpack.config.js**
@@ -158,3 +158,30 @@ What's currently wrong:
 The "output" of webpack is the distribution (`dist`) folder. It is where webpack drops or "outputs" the neat bundles of assets it creates from the individual files we point it to.
 
 `dist` stands for distribtuion and it stands really next to `src` folder. 
+
+### Loaders
+
+- In the last section we got webpack’s output configured - but to use babel we had to add a loader to our webpack config. We used it then without knowing what it was, but now we can revisit it.
+
+Let’s take another look at that loader.
+
+```javascript
+module: {
+    rules: [
+        {
+            test: '/\.js$/',
+            exclude: /node_modules/,
+            loader: "babel-loader"
+        }
+    ]
+}
+
+```
+
+Now take a look at how Webpack describes loaders:
+
+> Out of the box, webpack only understands JavaScript and JSON files. Loaders allow webpack to process other types of files and convert them into valid modules that can be consumed by your application.
+
+The `rules` array will contain all of our loaders, each loader specifies what type of file it will run on by running a regex matcher - in the case above we are looking for all `.js` files - the `$` at the end simply ,means that nothing comes after that.
+
+But simply looking for all the `.js` files in our project would be problematic, as we don’t want to run this on all the files we have in our node modules. For that kind of use case, we also have an exclude option available to us, and then we simply name the loader to be run on the selected files. Some loaders will have different options, you can always look it up in the loader documentation.

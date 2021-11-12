@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -8,7 +9,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js',
+        filename: '[name].[contenthash].js',
         clean: true
 
     },
@@ -21,6 +22,13 @@ module.exports = {
                 loader: "babel-loader"
             }
         ]
-    }
+    },
+
+    plugins: [
+        new HtmlWebPackPlugin({
+            template: "./src/client/views/index.html",
+            filename: './index.html'
+        })
+    ]
 
 }
