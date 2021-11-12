@@ -157,3 +157,4 @@ What's currently wrong:
 
 The "output" of webpack is the distribution (`dist`) folder. It is where webpack drops or "outputs" the neat bundles of assets it creates from the individual files we point it to.
 
+`dist` stands for distribtuion and it stands really next to `src` folder. 
