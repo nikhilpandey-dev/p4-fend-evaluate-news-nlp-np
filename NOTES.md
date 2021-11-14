@@ -239,3 +239,13 @@ nav a {
 
 It's one of the core things to know about sass because it is probably the single feature that most impacts your ability to write compact and efficient styles.
 
+## Lesson 4: Final Touches
+
+### Broken Project
+
+#### Lesson Objectives
+In this lesson, we will learn to incorporate the following in our web app:
+1. JavaScript functionalities- This will help us to attract listeners to the events and have webpack configure to access the listeners.
+1. API Call- Learn to call APis from our exercise project, ad pages to it.
+1. Production Envirionment - Set up the production configuration for the webpack
+1. Offline functionality- Introduce the "service workers" script that runs in the baclground and helps the webpack even without internet connectivity.

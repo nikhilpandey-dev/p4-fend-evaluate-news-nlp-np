@@ -3,7 +3,7 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     devtool: 'source-map',
     entry: {
         main: './src/client/index.js'
@@ -18,9 +18,20 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.(svg|ico|png|webp|jpg|gif|jpeg)$/i,
+                type: "asset/resource"
+
+            },
+
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader"
+            },
+
+            {
+                test: /\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
             }
         ]
     },
