@@ -12,7 +12,7 @@ module.exports = {
         library: "Client",
         libraryTarget: "var",
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[contenthash].js',
+        filename: '[name].js',
         clean: true
 
     },
