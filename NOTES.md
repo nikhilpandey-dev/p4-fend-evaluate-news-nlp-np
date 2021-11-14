@@ -187,3 +187,55 @@ The `rules` array will contain all of our loaders, each loader specifies what ty
 But simply looking for all the `.js` files in our project would be problematic, as we don’t want to run this on all the files we have in our node modules. For that kind of use case, we also have an exclude option available to us, and then we simply name the loader to be run on the selected files. Some loaders will have different options, you can always look it up in the loader documentation.
 
 ## Lesson 3: Saas and Webpack
+
+### Saas Basics
+
+#### Introduction
+
+The two of the famous CSS extension languages are:
+1. Saas - Not that these files have an extension `scss`.
+1. Less - It has a `.less` as file extension.
+
+### Sass Nesting
+- Nesting is one of the key feature of Sass. HTML elements are nesred, and so CSS is nested by nature, but that isn't reflected in CSS syntax. Saas allows you to write styles for nested elemetns in a much more intuitive way. Writing nested saas can mean that you don't have to create nearly as many individual classes, which can save a lot of time and markup. Not only that, but you are more likely to be able to edit styles by only touching the CSS files, without having to go back and forth between the HTML and CSS. As a rule of thumb though , if you find yourself nesting more than three levels deep, it's probably time for a new class.
+
+```scss
+
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li { display: inline-block; }
+
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+```
+
+The above code , when translated to CSS, would become: 
+
+
+```css
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav li {
+  display: inline-block;
+}
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+```
+
+It's one of the core things to know about sass because it is probably the single feature that most impacts your ability to write compact and efficient styles.
+
