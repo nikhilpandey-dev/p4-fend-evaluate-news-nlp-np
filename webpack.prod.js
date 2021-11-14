@@ -3,12 +3,14 @@ const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     devtool: 'source-map',
     entry: {
         main: './src/client/index.js'
     },
     output: {
+        library: "Client",
+        libraryTarget: "var",
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
         clean: true

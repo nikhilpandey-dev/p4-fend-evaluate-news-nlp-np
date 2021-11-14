@@ -249,3 +249,14 @@ In this lesson, we will learn to incorporate the following in our web app:
 1. API Call- Learn to call APis from our exercise project, ad pages to it.
 1. Production Envirionment - Set up the production configuration for the webpack
 1. Offline functionality- Introduce the "service workers" script that runs in the baclground and helps the webpack even without internet connectivity.
+
+#### Problem with our JavaScript event code
+- Webpack tries to keep the global scope clean
+- IIFE's encapsulate all of our code
+- We need access to the global scope to listen for events
+- Nornally, a framework does this for you.
+
+#### Immediately Invoked Function Expression (IIFE)
+
+### Fixing Our Functionality
+

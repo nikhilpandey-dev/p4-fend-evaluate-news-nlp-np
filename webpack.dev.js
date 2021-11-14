@@ -9,6 +9,8 @@ module.exports = {
         main: './src/client/index.js'
     },
     output: {
+        library: "Client",
+        libraryTarget: "var",
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[contenthash].js',
         clean: true
