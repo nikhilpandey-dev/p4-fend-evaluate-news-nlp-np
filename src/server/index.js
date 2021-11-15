@@ -39,3 +39,57 @@ const port = 8081;
 app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
 })
+
+// More Poerful Get Requests
+
+const appData = {
+    "year": "1901",
+    "category": "physics",
+    "laureates": [
+        {
+            "id": "1",
+            "firstname": "Wilhelm Conrad",
+            "surname": "R\u00f6ntgen",
+            "motivation": "\"in recognition of the extraordinary services he has rendered by the discovery of the remarkable rays subsequently named after him\"",
+            "share": "1"
+        }
+    ]
+}
+app.get('/all', function (req, res) {
+    res.send(appData);
+})
+
+const movieData = []
+
+app.post('/', function (req, res) {
+    res.send('Post received!');
+})
+
+app.post('/addMovie', addMovie);
+
+function addMovie(req, res) {
+    console.log("Request body is: ");
+    console.log(req.body);
+    movieData.push(req.body);
+    console.log("Movie Data is:");
+    console.log(movieData);
+}
+
+const projectData = [];
+
+app.post('/add', function (req, res) {
+    const data = req.body;
+    console.log(data);
+    projectData.push(data);
+
+})
+
+const urlData = []
+
+app.post('/geturl', function (req, res) {
+    console.log("Request body is: ");
+    console.log(req.body);
+    urlData.push(req.body);
+    console.log("URL Data is:");
+    console.log(urlData); 
+})

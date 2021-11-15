@@ -8,6 +8,7 @@ function handleSubmit(event) {
     const obj = retrieveData(formText);
     console.log("Object is: ");
     console.log(obj);
+    postData('/geturl', {url: formText})
 
 
     console.log("::: Form Submitted :::")
@@ -57,3 +58,30 @@ async function retrieveData(zipCode) {
       console.log('error: ', error);
     }
   }
+
+async function postData(url = '', data = {}) {
+    console.log(data);
+
+    const response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    });
+
+    try {
+
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+        
+    } catch (error) {
+        console.log("Error: ", error);
+    }
+}
+
+
+
+export {postData}
