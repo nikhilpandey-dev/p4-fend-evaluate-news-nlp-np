@@ -1,10 +1,12 @@
+var axios = require('axios');
 const dotenv = require('dotenv');
 dotenv.config();
 console.log(`Your API Key is: ${process.env.API_KEY}`);
 var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
-const cors = require('cors')
+const cors = require('cors');
+const { async } = require('regenerator-runtime');
 
 var json = {
     'title': 'test json response',
@@ -45,11 +47,40 @@ app.get('/hello', function (req, res) {
 });
 
 app.post('/article', analyzeArticle);
-articleData = []
+articleData = {}
 
-function analyzeArticle(req, res) {
-    console.log("The url send by you is: ");
-    console.log(req.body);
-    articleData.push(req.body);
-    // res.send(articleData);
+async function analyzeArticle(req, res) {
+
+    try {
+        console.log("The url send by you is: ");
+    console.log(req.body.url);
+    // articleData.push(req.body);
+    articleURL = req.body.url;
+    const url = createURL(articleURL);
+    const response = await axios.post(url);
+    // console.log("Response is: \n\n", response);
+    articleData = {
+        status: response.status,
+        statusText: response.statusText,
+        score_tag: response.data.score_tag,
+        agreement: response.data.agreement,
+        subjectivity: response.data.subjectivity,
+        confidence: response.data.confidence
+    };
+    console.log("Response is: \n\n");
+    console.log(articleData);
+    res.send(articleData);
+
+    } catch (error) {
+        console.error(error);
+    }
+    
+}
+
+
+function createURL(articleURL) {
+    const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
+    const apiKey = process.env.API_KEY;
+    const url = `${baseURL}?key=${apiKey}&lang=auto&url=${articleURL}`;
+    return url;
 }
