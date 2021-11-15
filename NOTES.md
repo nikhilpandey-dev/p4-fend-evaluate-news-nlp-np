@@ -267,3 +267,8 @@ In this lesson, we will learn to incorporate the following in our web app:
 # Testing Using Jest
 
 ## Jest Folder names
+
+## Webpack for Production
+ Added terser plugin, css minimizer plugin and mini-css-extract plugin. Have used CSS Minimizer plugin, because as per Webpack website for Webpack 5 and above we should use  css-minimizer-webpack-plugin.
+
+ Refer to this article on Webpack 5 website for [CSSMinimizerWebpackPlugin](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/)
