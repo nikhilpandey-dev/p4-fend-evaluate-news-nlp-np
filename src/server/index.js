@@ -39,3 +39,17 @@ app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
 })
 
+
+app.get('/hello', function (req, res) {
+    res.send("Hello, world!")
+});
+
+app.post('/article', analyzeArticle);
+articleData = []
+
+function analyzeArticle(req, res) {
+    console.log("The url send by you is: ");
+    console.log(req.body);
+    articleData.push(req.body);
+    // res.send(articleData);
+}
