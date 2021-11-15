@@ -5,18 +5,25 @@ function handleSubmit(event) {
 
     // check what text was put into the form field
     let formText = document.getElementById('name').value
-    postData('/article', {url: formText});
+    postData('/article', {url: formText})
+    .then(function(data){
+        console.log("The data returned is:");
+        console.log(data);
+        const div = document.createElement('div');
+        const p = document.createElement('p');
+        const score_tag = `score_tag: ${data.score_tag}\n`;
+        const agreement = `agreement: ${data.agreement}\n`;
+        const subjectivity = `subjectivity: ${data.subjectivity}\n`;
+        const confidence = `confidence: ${data.confidence}\n`;
+        const combinedText = `${score_tag}${agreement}${subjectivity}${confidence}`
+        p.append(combinedText);
+        div.appendChild(p);
+
+        document.getElementById('results').appendChild(div); 
+    })
 
     Client.checkForName(formText)
 
-    console.log("::: Form Submitted :::")
-    fetch('http://localhost:8081/test')
-    .then(res => {
-        return res.json()
-    })
-    .then(function(data) {
-        document.getElementById('results').innerHTML = data.message
-    })
 }
 
 export { handleSubmit }
