@@ -45,8 +45,8 @@ npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
 	```
 - Start the project
 
-Command | Action
-:------------: | :-------------:
+|Command | Action|
+|:------------: | :-------------:|
 `npm run build-prod` | Build project
 `npm start` | Run project
 
